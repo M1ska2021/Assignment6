@@ -1,0 +1,333 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R 5 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 6 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 7 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 8 0 R /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 9671 >>
+stream
+q 0.120 0.280 0.580 rg 40.00 804.00 515.28 1.80 re f Q
+q 0.750 0.780 0.820 rg 40.00 42.00 515.28 0.80 re f Q
+BT /F1 8.5 Tf 0.400 0.400 0.400 rg 40.00 814.00 Td (Astana IT University | School of Software Engineering) Tj ET
+BT /F2 16.5 Tf 0.100 0.220 0.480 rg 40.00 782.00 Td (Assignment 06: Visitor Pattern - Advanced File System) Tj ET
+BT /F1 9 Tf 0.300 0.350 0.450 rg 40.00 768.00 Td (Course: ShP-2216 Software Design Patterns | RK2 \(15%\) | Trimester 4) Tj ET
+q 0.750 0.820 0.920 RG 0.80 w 0.950 0.970 1.000 rg 40.00 706.00 515.00 54.00 re B Q
+BT /F2 9 Tf 0.150 0.200 0.350 rg 50.00 744.00 Td (Student: Maksut Alibi) Tj ET
+BT /F1 9 Tf 0.250 0.300 0.400 rg 50.00 731.00 Td (Group: SE2523) Tj ET
+BT /F1 9 Tf 0.250 0.300 0.400 rg 50.00 718.00 Td (Format: Individual | Java 17 | Maven 3.9+) Tj ET
+BT /F2 9 Tf 0.120 0.350 0.650 rg 260.00 744.00 Td (Repository: https://github.com/M1ska2021/Assignment6_Visitor) Tj ET
+BT /F1 9 Tf 0.250 0.300 0.400 rg 260.00 731.00 Td (Build Tool: Maven \(pom.xml + ./mvnw\)) Tj ET
+BT /F1 9 Tf 0.250 0.300 0.400 rg 260.00 718.00 Td (Verification: JUnit 5 \(8/8 automated test targets passed\)) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 676.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 676.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 681.50 Td (1. Purpose and Architectural Design Choices) Tj ET
+BT /F1 8.2 Tf 0.150 0.150 0.200 rg 45.00 660.00 Td (The goal of this assignment is to develop an in-memory hierarchical file system and implement the Visitor pattern to support) Tj ET
+BT /F1 8.2 Tf 0.150 0.150 0.200 rg 45.00 649.00 Td (three independent, extensible operations \(TotalSizeVisitor, SearchVisitor, StatisticsVisitor\) over the same composite tree.) Tj ET
+BT /F2 8.5 Tf 0.100 0.200 0.450 rg 45.00 634.00 Td (1. Object Model & Double Dispatch:) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 623.00 Td (   * Element declares accept\(Visitor\) along with hierarchical getters/setters \(getName\(\), getParent\(\), setParent\(\)\).) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 613.00 Td (   * FileNode represents files with non-negative byte sizes. DirectoryNode stores named children in arbitrary nesting.) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 603.00 Td (   * Double dispatch: \(1\) client invokes element.accept\(visitor\); \(2\) concrete node delegates visitor.visit\(this\).) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 593.00 Td (     The compiler binds 'this' statically, routing execution to the correct visit overload without any instanceof branching.) Tj ET
+BT /F2 8.5 Tf 0.100 0.200 0.450 rg 45.00 579.00 Td (2. Traversal Ownership Decision \(Visitor-Managed\):) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 568.00 Td (   * Traversal is owned by Visitors inside visit\(DirectoryNode\), which iterate children and call child.accept\(this\).) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 558.00 Td (   * Rationale: Allows each visitor to customize its traversal state \(e.g., path stack in SearchVisitor, depth counter in) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 548.00 Td (     StatisticsVisitor\) while preserving minimal accept\(v\) implementations in Element classes.) Tj ET
+BT /F2 8.5 Tf 0.100 0.200 0.450 rg 45.00 534.00 Td (3. Controlled State & Tree Invariants:) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 523.00 Td (   * Idempotent reusability: activeDepth counter resets state automatically on root entry; explicit reset\(\) is also available.) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 513.00 Td (   * Tree integrity: DirectoryNode.add\(\) prevents negative file sizes, duplicate sibling names \(IllegalArgumentException\),) Tj ET
+BT /F1 8 Tf 0.200 0.200 0.250 rg 45.00 503.00 Td (     and rejects multiple parent ownership and circular references \(IllegalStateException\) through parent-chain traversal.) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 481.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 481.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 486.50 Td (2. UML Class Diagram & Architecture) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.980 0.990 1.000 rg 40.00 315.00 515.00 150.00 re B Q
+q 0.600 0.700 0.850 RG 0.80 w 0.920 0.950 0.990 rg 50.00 400.00 150.00 52.00 re B Q
+BT /F2 7.5 Tf 0.100 0.250 0.500 rg 85.00 442.00 Td (<<interface>> Element) Tj ET
+BT /F1 6.8 Tf 0.200 0.200 0.300 rg 55.00 430.00 Td (+ getName\(\): String) Tj ET
+BT /F1 6.8 Tf 0.200 0.200 0.300 rg 55.00 420.00 Td (+ getParent\(\): DirectoryNode) Tj ET
+BT /F1 6.8 Tf 0.200 0.200 0.300 rg 55.00 410.00 Td (+ accept\(Visitor visitor\): void) Tj ET
+q 0.600 0.700 0.850 RG 0.80 w 1.000 1.000 1.000 rg 50.00 325.00 105.00 58.00 re B Q
+BT /F2 7.5 Tf 0.100 0.200 0.350 rg 85.00 372.00 Td (FileNode) Tj ET
+BT /F1 6.5 Tf 0.300 0.300 0.350 rg 55.00 360.00 Td (- name: String) Tj ET
+BT /F1 6.5 Tf 0.300 0.300 0.350 rg 55.00 350.00 Td (- size: long) Tj ET
+BT /F1 6.5 Tf 0.200 0.200 0.300 rg 55.00 340.00 Td (+ getSize\(\): long) Tj ET
+BT /F1 6.5 Tf 0.200 0.200 0.300 rg 55.00 330.00 Td (+ accept\(v: Visitor\): void) Tj ET
+q 0.600 0.700 0.850 RG 0.80 w 1.000 1.000 1.000 rg 170.00 325.00 140.00 58.00 re B Q
+BT /F2 7.5 Tf 0.100 0.200 0.350 rg 215.00 372.00 Td (DirectoryNode) Tj ET
+BT /F1 6.5 Tf 0.300 0.300 0.350 rg 175.00 360.00 Td (- children: List<Element>) Tj ET
+BT /F1 6.5 Tf 0.200 0.200 0.300 rg 175.00 350.00 Td (+ getChildren\(\): List<Element>) Tj ET
+BT /F1 6.5 Tf 0.200 0.200 0.300 rg 175.00 340.00 Td (+ add\(child: Element\): void) Tj ET
+BT /F1 6.5 Tf 0.200 0.200 0.300 rg 175.00 330.00 Td (+ accept\(v: Visitor\): void) Tj ET
+q 0.600 0.700 0.850 RG 0.80 w 0.920 0.950 0.990 rg 340.00 400.00 195.00 52.00 re B Q
+BT /F2 7.5 Tf 0.100 0.250 0.500 rg 405.00 442.00 Td (<<interface>> Visitor) Tj ET
+BT /F1 7 Tf 0.200 0.200 0.300 rg 345.00 426.00 Td (+ visit\(file: FileNode\): void) Tj ET
+BT /F1 7 Tf 0.200 0.200 0.300 rg 345.00 412.00 Td (+ visit\(directory: DirectoryNode\): void) Tj ET
+q 0.600 0.700 0.850 RG 0.80 w 1.000 1.000 1.000 rg 330.00 325.00 68.00 58.00 re B Q
+BT /F2 6.8 Tf 0.100 0.200 0.350 rg 334.00 372.00 Td (TotalSizeVisitor) Tj ET
+BT /F1 6.2 Tf 0.300 0.300 0.350 rg 334.00 358.00 Td (- totalSize: long) Tj ET
+BT /F1 6.2 Tf 0.200 0.200 0.300 rg 334.00 346.00 Td (+ getTotalSize\(\)) Tj ET
+BT /F1 6.2 Tf 0.200 0.200 0.300 rg 334.00 334.00 Td (+ reset\(\): void) Tj ET
+q 0.600 0.700 0.850 RG 0.80 w 1.000 1.000 1.000 rg 405.00 325.00 68.00 58.00 re B Q
+BT /F2 6.8 Tf 0.100 0.200 0.350 rg 411.00 372.00 Td (SearchVisitor) Tj ET
+BT /F1 6.2 Tf 0.300 0.300 0.350 rg 409.00 358.00 Td (- minSize: long) Tj ET
+BT /F1 6.2 Tf 0.200 0.200 0.300 rg 409.00 346.00 Td (+ getMatches\(\)) Tj ET
+BT /F1 6.2 Tf 0.200 0.200 0.300 rg 409.00 334.00 Td (+ reset\(\): void) Tj ET
+q 0.400 0.700 0.500 RG 0.90 w 0.950 0.990 0.950 rg 480.00 325.00 68.00 58.00 re B Q
+BT /F2 6.8 Tf 0.100 0.400 0.200 rg 484.00 372.00 Td (StatisticsVisitor) Tj ET
+BT /F1 5.8 Tf 0.200 0.500 0.250 rg 484.00 358.00 Td ([Extension R8]) Tj ET
+BT /F1 6.2 Tf 0.200 0.200 0.300 rg 484.00 346.00 Td (+ getFileCount\(\)) Tj ET
+BT /F1 6.2 Tf 0.200 0.200 0.300 rg 484.00 334.00 Td (+ getMaxDepth\(\)) Tj ET
+BT /F1 6.8 Tf 0.400 0.400 0.500 rg 220.00 424.00 Td (-- delegates accept\(\) via double dispatch -->) Tj ET
+q 0.850 0.880 0.920 RG 0.80 w 0.980 0.980 0.990 rg 40.00 68.00 515.00 230.00 re B Q
+BT /F2 8.8 Tf 0.150 0.250 0.450 rg 48.00 286.00 Td (Key Architectural Highlights & Invariant Defenses:) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 270.00 Td (* Negative Byte Size Defense:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 270.00 Td (FileNode constructor validates 'size >= 0' and non-blank names, throwing IllegalArgumentException.) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 257.50 Td (* Duplicate Sibling Prevention:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 257.50 Td (DirectoryNode.add checks existing child names before attachment, throwing IllegalArgumentException.) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 245.00 Td (* Single Parent Ownership:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 245.00 Td (DirectoryNode.add verifies 'child.getParent\(\) == null || child.getParent\(\) == this' \(IllegalStateException\).) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 232.50 Td (* Cycle Detection via Ancestor Chain:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 232.50 Td (DirectoryNode.add climbs the parent hierarchy to ensure child is not an ancestor \(IllegalStateException\).) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 220.00 Td (* Encapsulated Directory Collections:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 220.00 Td (DirectoryNode.getChildren\(\) returns Collections.unmodifiableList\(\), preventing external modification.) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 207.50 Td (* Root-Relative Deterministic Search:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 207.50 Td (SearchVisitor tracks path stacks using ArrayDeque; results use '/' separator and are lexicographically sorted.) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 195.00 Td (* Depth & Metric Tracking:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 195.00 Td (StatisticsVisitor records fileCount, directoryCount \(including visited root\), and maxDepth \(root depth = 0\).) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 182.50 Td (* Zero Runtime Type Discrimination:) Tj ET
+BT /F1 7.6 Tf 0.250 0.250 0.300 rg 195.00 182.50 Td (No instanceof, getClass\(\), reflection, or downcasting is used anywhere in the codebase.) Tj ET
+BT /F1 8.5 Tf 0.400 0.400 0.400 rg 40.00 30.00 Td (Astana IT University | ShP-2216 Software Design Patterns | Page 1 of 3) Tj ET
+BT /F2 8.5 Tf 0.200 0.250 0.350 rg 455.00 30.00 Td (Maksut Alibi \(SE2523\)) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Length 8757 >>
+stream
+q 0.120 0.280 0.580 rg 40.00 804.00 515.28 1.80 re f Q
+q 0.750 0.780 0.820 rg 40.00 42.00 515.28 0.80 re f Q
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 806.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 806.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 811.50 Td (3. Clean Code Practices \(Concrete Justifications\)) Tj ET
+q 0.820 0.860 0.920 RG 0.70 w 0.970 0.980 1.000 rg 40.00 750.00 515.00 48.00 re B Q
+BT /F2 8.8 Tf 0.100 0.220 0.480 rg 48.00 790.00 Td (1. Meaningful Naming) Tj ET
+BT /F3 7.2 Tf 0.250 0.300 0.450 rg 240.00 790.00 Td (Reference: TotalSizeVisitor.getTotalSize\(\) and DirectoryNode.add\(Element child\)) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 776.00 Td (Justification: Method and class identifiers unambiguously express domain concepts without obscure abbreviations or cryptic shorthand,) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 764.00 Td (              enabling immediate understanding of intent and contracts without requiring explanatory code comments.) Tj ET
+q 0.820 0.860 0.920 RG 0.70 w 0.970 0.980 1.000 rg 40.00 696.00 515.00 48.00 re B Q
+BT /F2 8.8 Tf 0.100 0.220 0.480 rg 48.00 736.00 Td (2. Single Responsibility Principle \(SRP\)) Tj ET
+BT /F3 7.2 Tf 0.250 0.300 0.450 rg 240.00 736.00 Td (Reference: FileNode / DirectoryNode vs. TotalSizeVisitor / SearchVisitor / StatisticsVisitor) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 722.00 Td (Justification: Node classes are exclusively responsible for composite structural hierarchy and invariant enforcement, while analytical,) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 710.00 Td (              search, and aggregation algorithms are isolated into dedicated visitor classes adhering to high cohesion.) Tj ET
+q 0.820 0.860 0.920 RG 0.70 w 0.970 0.980 1.000 rg 40.00 642.00 515.00 48.00 re B Q
+BT /F2 8.8 Tf 0.100 0.220 0.480 rg 48.00 682.00 Td (3. Small, Focused Methods) Tj ET
+BT /F3 7.2 Tf 0.250 0.300 0.450 rg 240.00 682.00 Td (Reference: FileNode.accept\(Visitor visitor\) and DirectoryNode.remove\(Element child\)) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 668.00 Td (Justification: Methods perform a single atomic operation in 2-5 lines of code, minimizing cognitive complexity and maximizing testability) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 656.00 Td (              and maintainability across edge conditions.) Tj ET
+q 0.820 0.860 0.920 RG 0.70 w 0.970 0.980 1.000 rg 40.00 588.00 515.00 48.00 re B Q
+BT /F2 8.8 Tf 0.100 0.220 0.480 rg 48.00 628.00 Td (4. Encapsulation & Immutability) Tj ET
+BT /F3 7.2 Tf 0.250 0.300 0.450 rg 240.00 628.00 Td (Reference: DirectoryNode.getChildren\(\)) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 614.00 Td (Justification: Exposes internal child lists exclusively via Collections.unmodifiableList\(children\), preventing clients from bypassing) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 602.00 Td (              validation or mutating directory state directly from outside the public API.) Tj ET
+q 0.820 0.860 0.920 RG 0.70 w 0.970 0.980 1.000 rg 40.00 534.00 515.00 48.00 re B Q
+BT /F2 8.8 Tf 0.100 0.220 0.480 rg 48.00 574.00 Td (5. Elimination of Type-Checking Chains) Tj ET
+BT /F3 7.2 Tf 0.250 0.300 0.450 rg 240.00 574.00 Td (Reference: FileNode.accept\(Visitor visitor\) and DirectoryNode.accept\(Visitor visitor\)) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 560.00 Td (Justification: Polymorphic double dispatch \(visitor.visit\(this\)\) routes execution to the exact overloaded visit method at compile/runtime,) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 48.00 548.00 Td (              completely eliminating fragile 'if \(node instanceof FileNode\)' branching and downcasting.) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 506.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 506.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 511.50 Td (4. Architectural Trade-offs & Extension Boundaries) Tj ET
+q 0.820 0.860 0.920 RG 0.80 w 0.980 0.980 0.990 rg 40.00 360.00 515.00 138.00 re B Q
+BT /F2 8.5 Tf 0.120 0.250 0.480 rg 48.00 484.00 Td (A. Traversal Ownership Trade-off \(Visitor-Managed vs. Element-Managed\):) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 472.00 Td (* Visitor-Managed Traversal \(Selected\): Traversal is controlled in visit\(DirectoryNode\). This grants individual visitors the) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 461.00 Td (  autonomy to control search ordering, depth stacks, and path segments, keeping node elements lightweight and unburdened.) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 450.00 Td (* Element-Managed Traversal \(Alternative\): Having DirectoryNode.accept recurse over children forces a single uniform traversal) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 439.00 Td (  strategy onto all operations, depriving visitors of specialized pre/post-order actions or path tracking.) Tj ET
+BT /F2 8.5 Tf 0.120 0.250 0.480 rg 48.00 423.00 Td (B. The Visitor Pattern Dual Trade-off \(Operations vs. Element Types\):) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 411.00 Td (* Adding New Operations \(Easy / Open-Closed\): New visitor classes \(e.g., StatisticsVisitor\) are added without modifying) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 400.00 Td (  existing classes \(FileNode, DirectoryNode, Element, or other visitors\). The extension boundary is the Visitor interface.) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 389.00 Td (* Adding New Elements \(Hard / Element Rigidity\): Introducing a new element \(e.g., SymlinkNode\) breaks the Visitor interface,) Tj ET
+BT /F1 7.8 Tf 0.200 0.200 0.250 rg 52.00 378.00 Td (  requiring a new visit\(SymlinkNode\) method and forcing modifications across every existing concrete visitor in the codebase.) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 336.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 336.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 341.50 Td (5. Extensibility Demonstration \(Requirement R8\)) Tj ET
+q 0.600 0.780 0.650 RG 0.80 w 0.950 0.980 0.960 rg 40.00 68.00 515.00 258.00 re B Q
+BT /F2 8.8 Tf 0.100 0.400 0.200 rg 48.00 312.00 Td (Extensibility Verification: Addition of StatisticsVisitor via Git Diff) Tj ET
+BT /F1 8 Tf 0.200 0.250 0.200 rg 48.00 298.00 Td (The StatisticsVisitor was introduced independently in Git commit 3822609 without changing FileNode, DirectoryNode,) Tj ET
+BT /F1 8 Tf 0.200 0.250 0.200 rg 48.00 287.00 Td (or their accept methods. Below is the exact extension diff confirming zero modifications to existing classes:) Tj ET
+BT /F3 7.2 Tf 0.150 0.300 0.600 rg 52.00 270.00 Td (diff --git a/src/main/java/kz/aitu/se2523/visitor/visitor/StatisticsVisitor.java) Tj ET
+BT /F3 7.2 Tf 0.200 0.250 0.300 rg 52.00 259.50 Td (new file mode 100644) Tj ET
+BT /F3 7.2 Tf 0.150 0.300 0.600 rg 52.00 249.00 Td (--- /dev/null) Tj ET
+BT /F3 7.2 Tf 0.150 0.300 0.600 rg 52.00 238.50 Td (+++ b/src/main/java/kz/aitu/se2523/visitor/visitor/StatisticsVisitor.java) Tj ET
+BT /F3 7.2 Tf 0.200 0.250 0.300 rg 52.00 228.00 Td (@@ -0,0 +1,64 @@) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 217.50 Td (+package kz.aitu.se2523.visitor.visitor;) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 207.00 Td (+) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 196.50 Td (+public class StatisticsVisitor implements Visitor {) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 186.00 Td (+    private int fileCount = 0;) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 175.50 Td (+    private int directoryCount = 0;) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 165.00 Td (+    private int maxDepth = 0;) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 154.50 Td (+    private int currentDepth = 0;) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 144.00 Td (+    public int getFileCount\(\) { return fileCount; }) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 133.50 Td (+    public int getDirectoryCount\(\) { return directoryCount; }) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 123.00 Td (+    public int getMaxDepth\(\) { return maxDepth; }) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 112.50 Td (+    @Override public void visit\(FileNode file\) { ... }) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 102.00 Td (+    @Override public void visit\(DirectoryNode directory\) { ... }) Tj ET
+BT /F3 7.2 Tf 0.100 0.450 0.150 rg 52.00 91.50 Td (+}) Tj ET
+BT /F2 7.8 Tf 0.100 0.350 0.150 rg 48.00 76.00 Td (Conclusion: The extension boundary \(Visitor interface\) ensures that operational extensibility is 100% compliant with OCP.) Tj ET
+BT /F1 8.5 Tf 0.400 0.400 0.400 rg 40.00 30.00 Td (Astana IT University | ShP-2216 Software Design Patterns | Page 2 of 3) Tj ET
+BT /F2 8.5 Tf 0.200 0.250 0.350 rg 455.00 30.00 Td (Maksut Alibi \(SE2523\)) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Length 10576 >>
+stream
+q 0.120 0.280 0.580 rg 40.00 804.00 515.28 1.80 re f Q
+q 0.750 0.780 0.820 rg 40.00 42.00 515.28 0.80 re f Q
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 806.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 806.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 811.50 Td (6. Executable Program Output \(Deterministic Demonstration\)) Tj ET
+q 0.800 0.840 0.900 RG 0.80 w 0.970 0.980 0.990 rg 40.00 600.00 515.00 196.00 re B Q
+q 0.800 0.840 0.900 RG 0.80 w 0.900 0.930 0.970 rg 40.00 780.00 515.00 16.00 re B Q
+BT /F2 8 Tf 0.200 0.250 0.350 rg 48.00 784.00 Td (Execution Console Log \(kz.aitu.se2523.visitor.Main\)) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 766.00 Td (=== Visitor Pattern Demonstration ===) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 756.50 Td (Root directory: portfolio) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 747.00 Td () Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 737.50 Td (--- TotalSizeVisitor ---) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 728.00 Td (Subtree size: 71570 bytes) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 718.50 Td () Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 709.00 Td (--- SearchVisitor \(.java, minSize >= 1000\) ---) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 699.50 Td (Match: src/main/App.java) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 690.00 Td () Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 680.50 Td (--- SearchVisitor \(all files, minSize >= 10000\) ---) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 671.00 Td (Match: docs/architecture.png) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 661.50 Td (Match: docs/specification.pdf) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 652.00 Td () Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 642.50 Td (--- StatisticsVisitor ---) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 633.00 Td (Total files: 8 | Total directories: 7 | Maximum tree depth: 3) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 623.50 Td () Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 614.00 Td (--- Verification of Reusability \(No State Leakage\) ---) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 604.50 Td (Re-run size visitor: 71570 bytes | Re-run statistics: files: 8, dirs: 7, depth: 3) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 595.00 Td () Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 585.50 Td (--- Invariant Defense ---) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 576.00 Td (Caught duplicate sibling name: Duplicate sibling name: README.md) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 566.50 Td (Caught cycle detection: Cycle detected: cannot add ancestor as child) Tj ET
+BT /F3 6.8 Tf 0.150 0.150 0.200 rg 48.00 557.00 Td (Caught negative size: File size cannot be negative: -10) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 576.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 576.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 581.50 Td (7. Automated Verification Summary \(JUnit 5 Suite\)) Tj ET
+BT /F2 8.2 Tf 0.100 0.220 0.480 rg 45.00 560.00 Td (Test Class: kz.aitu.se2523.visitor.FileSystemVisitorTest | Runner: Maven Surefire 3.2.5 \(mvn clean test\)) Tj ET
+q 0.120 0.280 0.580 rg 40.00 532.00 515.00 18.00 re f Q
+BT /F2 8 Tf 1.000 1.000 1.000 rg 48.00 537.00 Td (Check) Tj ET
+BT /F2 8 Tf 1.000 1.000 1.000 rg 85.00 537.00 Td (Test Method Name) Tj ET
+BT /F2 8 Tf 1.000 1.000 1.000 rg 260.00 537.00 Td (Automated Verification Target) Tj ET
+BT /F2 8 Tf 1.000 1.000 1.000 rg 485.00 537.00 Td (Status) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 1.000 1.000 1.000 rg 40.00 511.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 516.00 Td (T1) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 516.00 Td (t1_bothElementTypesReachCorrectOverloadedVisitMethods) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 516.00 Td (Double dispatch routes FileNode and DirectoryNode correctly) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 516.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 0.960 0.970 0.990 rg 40.00 494.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 499.00 Td (T2) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 499.00 Td (t2_sizeAccumulationAcrossMultipleNestingLevelsIsCorrect) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 499.00 Td (Cumulative size across 3 nesting levels \(7000 bytes\)) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 499.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 1.000 1.000 1.000 rg 40.00 477.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 482.00 Td (T3) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 482.00 Td (t3_searchCorrectlyCombinesBothConfigurableFilterConditions) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 482.00 Td (Filename filter \(.java\) combined with minimum size threshold) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 482.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 0.960 0.970 0.990 rg 40.00 460.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 465.00 Td (T4) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 465.00 Td (t4_searchProducesCorrectDeterministicRootRelativePaths) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 465.00 Td (Root-relative paths with '/' separator, lexicographically sorted) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 465.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 1.000 1.000 1.000 rg 40.00 443.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 448.00 Td (T5) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 448.00 Td (t5_statisticsAreCorrectForNestingCountingAndMaximumDepth) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 448.00 Td (File count \(3\), directory count \(3\), and max depth \(3\) accurate) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 448.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 0.960 0.970 0.990 rg 40.00 426.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 431.00 Td (T6) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 431.00 Td (t6_emptyStructuresAndNoMatchSearchCasesAreHandled) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 431.00 Td (Empty directory handling and empty search result sets verified) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 431.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 1.000 1.000 1.000 rg 40.00 409.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 414.00 Td (T7) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 414.00 Td (t7_repeatExecutionsDoNotLeakOrMultiplyAccumulatedState) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 414.00 Td (Repeat runs do not leak or double state \(reusability verified\)) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 414.00 Td (PASS) Tj ET
+q 0.850 0.880 0.920 RG 0.50 w 0.960 0.970 0.990 rg 40.00 392.00 515.00 17.00 re B Q
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 48.00 397.00 Td (T8) Tj ET
+BT /F3 6.8 Tf 0.100 0.150 0.300 rg 85.00 397.00 Td (t8_invalidTreeMutationsAreRejectedWhileValidNestingRemainsSupported) Tj ET
+BT /F1 7.2 Tf 0.200 0.200 0.250 rg 260.00 397.00 Td (Rejection of negative sizes, duplicate siblings, multi-parent & cycles) Tj ET
+BT /F2 8 Tf 0.100 0.550 0.200 rg 485.00 397.00 Td (PASS) Tj ET
+q 0.600 0.800 0.650 RG 0.80 w 0.920 0.970 0.930 rg 40.00 360.00 515.00 20.00 re B Q
+BT /F2 8.2 Tf 0.100 0.450 0.200 rg 48.00 366.00 Td (Test Execution Result: 8 Tests Run | 0 Failures | 0 Errors | 0 Skipped | Time: 0.021s [100% SUCCESS]) Tj ET
+q 0.780 0.830 0.920 RG 0.80 w 0.920 0.940 0.980 rg 40.00 331.00 515.00 18.00 re B Q
+q 0.120 0.280 0.580 rg 40.00 331.00 4.00 18.00 re f Q
+BT /F2 10.5 Tf 0.100 0.200 0.450 rg 50.00 336.50 Td (8. Academic References & Defense Preparation) Tj ET
+q 0.850 0.880 0.920 RG 0.80 w 0.980 0.980 0.990 rg 40.00 68.00 515.00 252.00 re B Q
+BT /F2 8.5 Tf 0.100 0.220 0.480 rg 48.00 305.00 Td (Defense Protocol Checklist \(Prepared Responses\):) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 290.00 Td (Step 1 \(Double Dispatch Trace\):) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 290.00 Td (Client calls element.accept\(visitor\) \(polymorphism on Element\). Inside node, visitor.visit\(this\)) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 279.50 Td (is invoked where 'this' has exact compile-time static type, dispatching to visit\(FileNode\) or visit\(DirectoryNode\).) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 266.50 Td (Step 2 \(Automated Test Suite\):) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 266.50 Td (Execute 'mvn clean test' or './mvnw test' from project root; all 8 test cases pass in 0.021s) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 256.00 Td (verifying double dispatch, size calculation, search filtering, statistics, idempotency, and invariant defenses.) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 243.00 Td (Step 3 \(Configuration Mutation\):) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 243.00 Td (SearchVisitor supports dynamic predicate or size changes; StatisticsVisitor supports arbitrary depth) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 232.50 Td (and tree structures without requiring modifications to FileNode or DirectoryNode.) Tj ET
+BT /F2 7.8 Tf 0.150 0.200 0.350 rg 52.00 219.50 Td (Step 4 \(Architectural Trade-off\):) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 219.50 Td (Adding new operations requires only a new Visitor implementation \(OCP compliant\). Adding new elements) Tj ET
+BT /F1 7.5 Tf 0.200 0.250 0.300 rg 195.00 209.00 Td (requires modifying the Visitor interface and updating all existing visitor classes.) Tj ET
+BT /F2 8.5 Tf 0.100 0.220 0.480 rg 48.00 142.00 Td (Academic Literature:) Tj ET
+BT /F1 7.3 Tf 0.300 0.350 0.400 rg 52.00 126.00 Td (1. Gamma, E., Helm, R., Johnson, R., & Vlissides, J. \(1994\). Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley.) Tj ET
+BT /F1 7.3 Tf 0.300 0.350 0.400 rg 52.00 115.00 Td (2. Freeman, E., & Robson, E. \(2021\). Head First Design Patterns \(2nd ed.\), Ch. 11: Visitor Pattern. O'Reilly Media.) Tj ET
+BT /F1 7.3 Tf 0.300 0.350 0.400 rg 52.00 104.00 Td (3. Martin, R. C. \(2008\). Clean Code: A Handbook of Agile Software Craftsmanship. Prentice Hall.) Tj ET
+BT /F1 7.3 Tf 0.300 0.350 0.400 rg 52.00 93.00 Td (4. ShP-2216 Lecture 9: Behavioral Patterns - Visitor, Composite Structures, and Double Dispatch. Astana IT University LMS.) Tj ET
+BT /F2 8.2 Tf 0.120 0.350 0.650 rg 48.00 78.00 Td (Submission Link: https://github.com/M1ska2021/Assignment6_Visitor) Tj ET
+BT /F1 8.5 Tf 0.400 0.400 0.400 rg 40.00 30.00 Td (Astana IT University | ShP-2216 Software Design Patterns | Page 3 of 3) Tj ET
+BT /F2 8.5 Tf 0.200 0.250 0.350 rg 455.00 30.00 Td (Maksut Alibi \(SE2523\)) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+12 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000127 00000 n 
+0000000292 00000 n 
+0000000457 00000 n 
+0000000622 00000 n 
+0000010345 00000 n 
+0000019154 00000 n 
+0000029783 00000 n 
+0000029853 00000 n 
+0000029929 00000 n 
+0000029998 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+30072
+%%EOF

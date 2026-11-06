@@ -1,0 +1,26 @@
+=== Visitor Pattern Demonstration ===
+Root directory: portfolio
+
+--- TotalSizeVisitor ---
+Subtree size: 71570 bytes
+
+--- SearchVisitor (.java, minSize >= 1000) ---
+Match: src/main/App.java
+
+--- SearchVisitor (all files, minSize >= 10000) ---
+Match: docs/architecture.png
+Match: docs/specification.pdf
+
+--- StatisticsVisitor ---
+Total files: 8
+Total directories: 7
+Maximum tree depth: 3
+
+--- Verification of Reusability (No State Leakage) ---
+Re-run size visitor: 71570 bytes
+Re-run statistics files: 8, dirs: 7, depth: 3
+
+--- Invariant Defense ---
+Caught duplicate sibling name: Duplicate sibling name: README.md
+Caught cycle detection: Cycle detected: cannot add ancestor as child
+Caught negative size: File size cannot be negative: -10
