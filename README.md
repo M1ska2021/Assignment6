@@ -1,9 +1,8 @@
-# Assignment 06 | Visitor Pattern: Advanced File System
+# Assignment 06 
 
-- **Course:** ShP-2216 – Software Design Patterns
 - **Student:** Maksut Alibi
 - **Group:** SE2523
-- **Repository URL:** https://github.com/M1ska2021/Assignment6_Visitor
+- **Repository URL:** https://github.com/M1ska2021/Assignment6
 
 ---
 
