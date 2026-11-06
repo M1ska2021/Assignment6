@@ -1,8 +1,5 @@
 # Assignment 06: Visitor Pattern Report
 
-- **Course:** ShP-2216 – Software Design Patterns
-- **Academic Year:** 2026–2027 (2nd year, 4th trimester)
-- **Institution:** Astana IT University – School of Software Engineering
 - **Student:** Maksut Alibi
 - **Group:** SE2523
 - **Repository URL:** https://github.com/M1ska2021/Assignment6_Visitor
